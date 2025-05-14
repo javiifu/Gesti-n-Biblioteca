@@ -1,11 +1,13 @@
-public class Libro {
+import java.io.Serializable;
+
+public class Libro implements Serializable{ //Hay que hacerlo Serializable para poder trabajar la persistencia. 
 
     //Atributos
     private String Titulo;
     private String Autor;
     private int Isbn;
     private int Año_Publicacion;
-    //Constructoru
+    //Constructor
     public Libro (String Titulo, String Autor, int Isbn, int Año_Publicacion){
         this.Titulo = Titulo;
         this.Autor = Autor;
@@ -44,5 +46,14 @@ public class Libro {
     public void setAñoPublicacion(int Año_Publicacion){
         this.Año_Publicacion = Año_Publicacion;
     }
-    
+    //Modificamos la clase toString con un Overrride
+    @Override
+    public String toString(){
+        return Titulo+";"+Autor+";"+Isbn+";"+Año_Publicacion;
+    }
+    //Creación del método particionString para  poder leerlo en el fichero. 
+    public static Libro particionString(String linea) {
+        String [] partes = linea.split(";");
+        return new Libro(partes[0], partes[1], Integer.parseInt(partes[2]), Integer.parseInt(partes[3]));
+    }
 }
