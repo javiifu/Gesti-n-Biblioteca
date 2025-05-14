@@ -17,6 +17,22 @@ public class Miscelanea {
             System.out.println("4. Buscar libro por título");
             System.out.println("5. Mostrar todos los libros registrados. ");
             System.out.println("6. Salir.");
+            opcion = sc.nextInt();
+    
+            sc.next();
+
+            switch (opcion) {
+                case 1:
+                    añadirlibro();
+                case 2:
+                //BuscarlibroISBN;
+                case 3:
+                //Buscar Libro autor. ;
+                case 4: 
+                //Buscar libro por titulo. 
+                case 5:
+                //Mostrar los libros.s
+            }
         } while (opcion != 6);
     }
 
