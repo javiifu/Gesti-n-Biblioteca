@@ -18,4 +18,6 @@ public class Menu {
             System.out.println("6. Salir.");
         } while (opcion != 6);
     }
+
+    public void 
 }
