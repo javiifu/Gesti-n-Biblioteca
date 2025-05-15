@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -18,14 +19,19 @@ public class Main {
             switch (opcion) {
                 case 1:
                     ms.añadirlibro();
+                    break;
                 case 2:
                     ms.mostrarLibroIsbn();
+                    break;
                 case 3:
                     ms.mostrarLibroAutor();
+                    break;
                 case 4: 
-                    ms.mostrarLibroTitulo(); 
+                    ms.mostrarLibroTitulo();
+                    break; 
                 case 5:
                     ms.mostrarLibros();
+                    break;
             }
         } while (opcion != 6);
         sc.close();

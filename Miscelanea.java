@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Miscelanea {
     Scanner sc = new Scanner(System.in);
     GestorFicheroLibros gestor = new GestorFicheroLibros();
-    ArrayList<Libro> Libros = new ArrayList<>();
+    ArrayList<Libro> Libros = gestor.cargarLibros();
     //Atributos 
 
     int opcion;
@@ -39,7 +39,7 @@ public class Miscelanea {
         sc.next();
         for (Libro libro: Libros){
             if (respuesta == libro.getIsbn()){
-                System.out.println("El libro que busca es el siguiente"+libro);
+                System.out.println("El libro que busca es el siguiente: "+libro);
             }
         }
     }
@@ -63,14 +63,27 @@ public class Miscelanea {
         sc.next();
         for (Libro libro : Libros){
             if(respuesta.equals(libro.getTitulo())){
-                System.out.println("El libro que busca es el siguiente: "+ libro);
+                System.out.println("El libro que busca es el siguiente: "+ libro.toString());
+                
+            }
+            else{
+                System.out.println("No se ha encontrado ningún libro ");
             }
         }
+        
+        
     }
     public void mostrarLibros(){
+        gestor.cargarLibros();
         System.out.println("Mostrando todos los libros guardados:");
         for (Libro libro:Libros){
             System.out.println(libro.toString());
+            
         }
+        if (Libros == null){
+            System.out.println("No se ha encontrado ningún libro.");
+        }
+        
+        
     }
 }

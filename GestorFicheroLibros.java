@@ -27,7 +27,10 @@ public class GestorFicheroLibros {
         try (BufferedReader br = new BufferedReader(new FileReader(RUTA))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                Libros.add(Libro.particionString(linea));
+                Libro libro = Libro.particionString(linea);
+                if (libro != null) {
+                    Libros.add(libro);
+                }
             }
         }
 
@@ -36,4 +39,6 @@ public class GestorFicheroLibros {
         }
         return Libros;
     }
+
+
 }
