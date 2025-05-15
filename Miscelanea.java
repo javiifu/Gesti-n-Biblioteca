@@ -45,38 +45,85 @@ public class Miscelanea {
         Libros.add(libro);
         //Guardamos el libro una vez creado. Para que se haga automáticamente. 
         gestor.guardarLibros(Libros, false);
+
+        System.out.println("Libro creado correctamente.");
     }
 
     public void mostrarLibroIsbn(){
-        long respuesta;
+        long respuesta = 0; // Initialize with a default value
+        boolean verificador = false;
         System.out.println("Ha elegido buscar un libro por ISBN:");
-        System.out.println("Introduzca el ISBN a buscar: ");
-        respuesta = sc.nextLong();
-        sc.next();
+        do{
+            System.out.print("Introduzca el ISBN a buscar: ");
+            if (sc.hasNextLong()) {
+                respuesta = sc.nextLong();
+                verificador = true;
+            } 
+            else {
+                System.out.println("Entrada inválida. Introduzca un número de 13 dígitos.");
+                sc.next(); // Limpiar el buffer.
+            }
+        }while (verificador);
+        
+        
         for (Libro libro: Libros){
             if (respuesta == libro.getIsbn()){
                 System.out.println("El libro que busca es el siguiente: "+libro);
+                break; //terminamos el bucle for si es encontrado. 
+
+            }
+            else{
+                System.out.println("No se ha encontrado ningún libro que tenga es ISBN");
             }
         }
     }
     public void mostrarLibroAutor (){
         String respuesta;
+        boolean verificador = false;
         System.out.println("Ha elegido la opción de buscar un libro por autor");
-        System.out.println("Introduzca el nómbre del autor");
-        respuesta = sc.nextLine();
-        sc.next();
+        
+        do{
+            System.out.println("Introduzca el nómbre del autor");
+            respuesta = sc.nextLine();
+            if (respuesta.isEmpty()){
+                System.out.println("No puede estar en blanco su respuesta.");
+            }
+            else if (respuesta instanceof String){
+                verificador = true;
+            }
+            else{
+                System.out.println("Introduzca un cadena de texto, porfavor.");
+            }
+        }while(verificador);
+
         for (Libro libro : Libros){
             if(respuesta.equals(libro.getAutor())){
                 System.out.println("Se ha encontrado el siguiente libro del autor: "+libro);
             }
+            else{
+                System.out.println("No se ha encontrado ningún libro con ese autor.");
+            }
         }
+        
     }
     public void mostrarLibroTitulo(){
         String respuesta;
+        boolean verificador = false;
         System.out.println("Ha elegido la opción de buscar un libro por título");
+       
+       do{
         System.out.println("Introduzca el nómbre del título");
         respuesta = sc.nextLine();
-        sc.next();
+        if (respuesta.isEmpty()){
+            System.out.println("No puede estar en blanco su respuesta.");
+        }
+        else if (respuesta instanceof String){
+            verificador = true;
+        }
+        else{
+            System.out.println("Introduzca una cadena de texto porfavor.");
+        }
+       }while(verificador);
         for (Libro libro : Libros){
             if(respuesta.equals(libro.getTitulo())){
                 System.out.println("El libro que busca es el siguiente: "+ libro.toString());
