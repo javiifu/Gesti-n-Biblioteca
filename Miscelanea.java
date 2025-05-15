@@ -68,7 +68,7 @@ public class Miscelanea {
         }
     }
     public void mostrarLibros(){
-        System.out.println("Mostrando todos los libros guardados");
+        System.out.println("Mostrando todos los libros guardados:");
         for (Libro libro:Libros){
             System.out.println(libro.toString());
         }

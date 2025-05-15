@@ -54,6 +54,23 @@ public class Libro implements Serializable{ //Hay que hacerlo Serializable para 
     //Creación del método particionString para  poder leerlo en el fichero. 
     public static Libro particionString(String linea) {
         String [] partes = linea.split(";");
-        return new Libro(partes[0], partes[1], Long.parseLong(partes[2]), Integer.parseInt(partes[3]));
+        //Verificacion de que hay 4 partes en el libro.
+        if (partes.length != 4) {
+            System.out.println("La línea esta mal formada"+ linea);
+            return null;
+        }
+        try{
+            String titulo = partes[0];
+            String autor = partes[1];
+            long isbn = Long.parseLong(partes[2]);
+            int anio = Integer.parseInt(partes[3]);
+
+            return new Libro(titulo, autor, isbn, anio);
+        } 
+        catch (NumberFormatException e) {
+            System.out.println("❌ Error al convertir datos numéricos en línea: " + linea);
+            return null;
+        }
+        
     }
 }
