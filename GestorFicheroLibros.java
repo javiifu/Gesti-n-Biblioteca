@@ -14,7 +14,7 @@ public class GestorFicheroLibros {
             // Recoremos el Arraylist de Libros y los guardamos.
             for (Libro libro : libros) {
                 bw.write(libro.toString());
-                bw.newLine(); // Así tendremos un libro por cada línea.
+                bw.newLine(); // Hacemos un salto de línea.
             }
         } catch (IOException e) {
             System.out.println("Error al guardar los libros por: " + e.getMessage());

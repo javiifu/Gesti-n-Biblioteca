@@ -29,7 +29,7 @@ public class Miscelanea {
             isbnDuplicado = false;
             for (Libro libro : Libros) {
                 if (Isbn == libro.getIsbn()) {
-                    System.out.println("No puede haber Isbn duplicados");
+                    System.out.println("No puede haber ISBN duplicados");
                     System.out.println("Introduzca un nuevo ISBN: ");
                     Isbn = sc.nextLong();
                     isbnDuplicado = true;
@@ -44,7 +44,7 @@ public class Miscelanea {
         //Guardamos el libro en el array list. 
         Libros.add(libro);
         //Guardamos el libro una vez creado. Para que se haga automáticamente. 
-        gestor.guardarLibros(Libros, true);
+        gestor.guardarLibros(Libros, false);
     }
 
     public void mostrarLibroIsbn(){
