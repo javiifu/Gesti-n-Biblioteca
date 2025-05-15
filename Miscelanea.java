@@ -8,7 +8,9 @@ public class Miscelanea {
     //Atributos 
 
     int opcion;
-
+    public void cargarLibros(){
+        Libros = gestor.cargarLibros();
+    }
     public void añadirlibro(){
         String titulo;
         String autor;
