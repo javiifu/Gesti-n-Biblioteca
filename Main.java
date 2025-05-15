@@ -6,6 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Miscelanea ms = new Miscelanea();        int opcion;
         do {
+            System.out.println("Bienvenido al menú. ¿Qué desea hacer?");
             System.out.println("1. Añadir un nuevo libro");
             System.out.println("2. Buscar libro por ISBN");
             System.out.println("3. Buscar libro por autor");

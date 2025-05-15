@@ -21,6 +21,20 @@ public class Miscelanea {
         autor = sc.nextLine();
         System.out.println("Introduzca ISBN: ");
         Isbn = sc.nextLong();
+        //verificacion de ISBN duplicado
+        boolean isbnDuplicado;
+        do {
+            isbnDuplicado = false;
+            for (Libro libro : Libros) {
+                if (Isbn == libro.getIsbn()) {
+                    System.out.println("No puede haber Isbn duplicados");
+                    System.out.println("Introduzca un nuevo ISBN: ");
+                    Isbn = sc.nextLong();
+                    isbnDuplicado = true;
+                    break;
+                }
+            }
+        } while (isbnDuplicado);
         System.out.println("Por último, introduzca el año de publicación: ");
         año_publicacion = sc.nextInt();
         //Creamos el objeto libro. 
@@ -83,7 +97,7 @@ public class Miscelanea {
         if (Libros == null){
             System.out.println("No se ha encontrado ningún libro.");
         }
-        
+        System.out.println("----------------------------------------------------------"); //Estetica para que salga de nuevo al menú
         
     }
 }
