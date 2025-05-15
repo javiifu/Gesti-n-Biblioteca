@@ -25,13 +25,13 @@ public class Miscelanea {
                 case 1:
                     añadirlibro();
                 case 2:
-                //BuscarlibroISBN;
+                    mostrarLibroIsbn();
                 case 3:
-                //Buscar Libro autor. ;
+                    mostrarLibroAutor();
                 case 4: 
-                //Buscar libro por titulo. 
+                    mostrarLibroTitulo(); 
                 case 5:
-                //Mostrar los libros.s
+                    mostrarLibros();
             }
         } while (opcion != 6);
     }
@@ -59,5 +59,48 @@ public class Miscelanea {
         Libros.add(libro);
         //Guardamos el libro una vez creado. Para que se haga automáticamente. 
         gestor.guardarLibros(Libros, true);
+    }
+
+    public void mostrarLibroIsbn(){
+        int respuesta;
+        System.out.println("Ha elegido buscar un libro por ISBN:");
+        System.out.println("Introduzca el ISBN a buscar: ");
+        respuesta = sc.nextInt();
+        sc.next();
+        for (Libro libro: Libros){
+            if (respuesta == libro.getIsbn()){
+                System.out.println("El libro que busca es el siguiente"+libro);
+            }
+        }
+    }
+    public void mostrarLibroAutor (){
+        String respuesta;
+        System.out.println("Ha elegido la opción de buscar un libro por autor");
+        System.out.println("Introduzca el nómbre del autor");
+        respuesta = sc.nextLine();
+        sc.next();
+        for (Libro libro : Libros){
+            if(respuesta.equals(libro.getAutor())){
+                System.out.println("Se ha encontrado el siguiente libro del autor: "+libro);
+            }
+        }
+    }
+    public void mostrarLibroTitulo(){
+        String respuesta;
+        System.out.println("Ha elegido la opción de buscar un libro por título");
+        System.out.println("Introduzca el nómbre del título");
+        respuesta = sc.nextLine();
+        sc.next();
+        for (Libro libro : Libros){
+            if(respuesta.equals(libro.getTitulo())){
+                System.out.println("El libro que busca es el siguiente: "+ libro);
+            }
+        }
+    }
+    public void mostrarLibros(){
+        System.out.println("Mostrando todos los libros guardados");
+        for (Libro libro:Libros){
+            System.out.println(libro);
+        }
     }
 }
