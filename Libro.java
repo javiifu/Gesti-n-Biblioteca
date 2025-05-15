@@ -68,7 +68,7 @@ public class Libro implements Serializable{ //Hay que hacerlo Serializable para 
             return new Libro(titulo, autor, isbn, anio);
         } 
         catch (NumberFormatException e) {
-            System.out.println("❌ Error al convertir datos numéricos en línea: " + linea);
+            System.out.println("Error al convertir datos numéricos en línea: " + linea);
             return null;
         }
         
