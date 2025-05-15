@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+
+
 import java.util.ArrayList;
 
 public class Miscelanea {
@@ -54,22 +57,29 @@ public class Miscelanea {
         boolean verificador = false;
         System.out.println("Ha elegido buscar un libro por ISBN:");
         do{
-            System.out.print("Introduzca el ISBN a buscar: ");
+            System.out.print("Introduzca el ISBN a buscar: "); 
             if (sc.hasNextLong()) {
                 respuesta = sc.nextLong();
-                verificador = true;
-            } 
+                int longitud = String.valueOf(respuesta).length();
+                
+                if (longitud == 13){
+                    verificador = true;
+                }
+                else{
+                    System.out.println("Entrada inválida. Introduzca un número de 13 dígitos.");
+                }
+            }
             else {
                 System.out.println("Entrada inválida. Introduzca un número de 13 dígitos.");
                 sc.next(); // Limpiar el buffer.
             }
-        }while (verificador);
+        }while (!verificador);
         
         
         for (Libro libro: Libros){
             if (respuesta == libro.getIsbn()){
                 System.out.println("El libro que busca es el siguiente: "+libro);
-                break; //terminamos el bucle for si es encontrado. 
+                break; //terminamos el bucle for si es encontrado, porque el valor el único. 
 
             }
             else{
@@ -94,7 +104,7 @@ public class Miscelanea {
             else{
                 System.out.println("Introduzca un cadena de texto, porfavor.");
             }
-        }while(verificador);
+        }while(!verificador);
 
         for (Libro libro : Libros){
             if(respuesta.equals(libro.getAutor())){
@@ -123,7 +133,7 @@ public class Miscelanea {
         else{
             System.out.println("Introduzca una cadena de texto porfavor.");
         }
-       }while(verificador);
+       }while(!verificador);
         for (Libro libro : Libros){
             if(respuesta.equals(libro.getTitulo())){
                 System.out.println("El libro que busca es el siguiente: "+ libro.toString());
